@@ -1,0 +1,36 @@
+#include <iostream>
+#include <string> // Essential for using 'string' type
+
+using namespace std;
+
+class Student { // Class names are usually capitalized by convention
+private:
+    int roll;
+    string name;
+
+public:
+    // Parameters: int x and string y (name must be a string)
+    void read(int x, string y) { 
+        roll = x;
+        name = y;
+    }
+
+    void print() {
+        cout << "Roll no is: " << roll << endl;
+        cout << "Name is: " << name << endl;
+    }
+};
+
+int main() {
+    Student s1; // Object creation
+    int rno;
+    string n;
+
+    cout << "Enter roll no and name: ";
+    cin >> rno >> n;
+
+    s1.read(rno, n);
+    s1.print();
+
+    return 0;
+}
