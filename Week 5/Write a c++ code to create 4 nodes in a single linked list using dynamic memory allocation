@@ -1,0 +1,50 @@
+#include <iostream>
+using namespace std;
+
+// Node structure
+struct Node
+{
+    int data;
+    Node* next;
+};
+
+int main()
+{
+    Node *head = nullptr, *second = nullptr, *third = nullptr, *fourth = nullptr;
+
+    // Dynamically allocate memory for nodes
+    head = new Node();
+    second = new Node();
+    third = new Node();
+    fourth = new Node();
+
+    // Assign data and link nodes
+    head->data = 10;
+    head->next = second;
+
+    second->data = 20;
+    second->next = third;
+
+    third->data = 30;
+    third->next = fourth;
+
+    fourth->data = 40;
+    fourth->next = nullptr;
+
+    // Display linked list
+    Node* temp = head;
+    cout << "Linked List: ";
+    while(temp != nullptr)
+    {
+        cout << temp->data << " ";
+        temp = temp->next;
+    }
+
+    // Free dynamically allocated memory
+    delete head;
+    delete second;
+    delete third;
+    delete fourth;
+
+    return 0;
+}
