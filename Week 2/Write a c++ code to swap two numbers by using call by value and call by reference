@@ -1,0 +1,46 @@
+#include <iostream>
+using namespace std;
+
+// Call by Value
+void swapValue(int a, int b)
+{
+    int temp;
+    temp = a;
+    a = b;
+    b = temp;
+
+    cout << "Inside swapValue (Call by Value): ";
+    cout << "a = " << a << " b = " << b << endl;
+}
+
+// Call by Reference
+void swapReference(int &a, int &b)
+{
+    int temp;
+    temp = a;
+    a = b;
+    b = temp;
+
+    cout << "Inside swapReference (Call by Reference): ";
+    cout << "a = " << a << " b = " << b << endl;
+}
+
+int main()
+{
+    int x = 10, y = 20;
+
+    cout << "Before swapping: ";
+    cout << "x = " << x << " y = " << y << endl;
+
+    // Call by Value
+    swapValue(x, y);
+    cout << "After swapValue: ";
+    cout << "x = " << x << " y = " << y << endl;
+
+    // Call by Reference
+    swapReference(x, y);
+    cout << "After swapReference: ";
+    cout << "x = " << x << " y = " << y << endl;
+
+    return 0;
+}
