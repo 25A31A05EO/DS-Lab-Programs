@@ -1,0 +1,67 @@
+#include <iostream>
+using namespace std;
+
+// Node structure
+struct Node
+{
+    int data;
+    Node* next;
+};
+
+int main()
+{
+    int n, value;
+    Node *head = nullptr, *temp = nullptr, *newNode = nullptr;
+
+    cout << "Enter number of nodes: ";
+    cin >> n;
+
+    if(n <= 0)
+    {
+        cout << "Number of nodes must be positive." << endl;
+        return 0;
+    }
+
+    // Creating the linked list
+    for(int i = 1; i <= n; i++)
+    {
+        newNode = new Node();
+        cout << "Enter data for node " << i << ": ";
+        cin >> value;
+
+        newNode->data = value;
+        newNode->next = nullptr;
+
+        if(head == nullptr)
+        {
+            head = newNode;  // first node
+            temp = head;
+        }
+        else
+        {
+            temp->next = newNode;
+            temp = newNode;
+        }
+    }
+
+    // Display the linked list
+    cout << "Linked List: ";
+    temp = head;
+    while(temp != nullptr)
+    {
+        cout << temp->data << " ";
+        temp = temp->next;
+    }
+
+    // Free the memory
+    temp = head;
+    Node *nextNode;
+    while(temp != nullptr)
+    {
+        nextNode = temp->next;
+        delete temp;
+        temp = nextNode;
+    }
+
+    return 0;
+}
